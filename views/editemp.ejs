@@ -1,0 +1,23 @@
+<%- include('includes/header')  %> 
+
+<% for(row of select) {  %>    
+<form action="/api/update/<%= row['id'] %> " method="POST">
+    <div class="container">
+      <h1>Edit Employe</h1> <br>
+      <hr>
+      <label for="email"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" name="txtname" value="<%= row['name'] %> "  required>
+  
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="txtemail"  value="<%= row['email'] %> " required>
+
+      <label for="email"><b>Phone</b></label>
+      <input type="text" placeholder="Enter Phone" name="txtphone"  value="<%= row['phone'] %> " required>
+  
+      <hr>
+      <button type="submit" class="registerbtn">UPDATE</button>
+    </div>  
+  </form>
+  <% } %> 
+</body>
+</html>

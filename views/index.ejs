@@ -1,0 +1,39 @@
+<%- include('includes/header')  %> 
+<body>
+    <div class="add-user">
+        <h1>Empolye Management System</h1>
+         <a href="/insertEmploye"> <button class="btn">Add employe</button></a>
+    </div>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Details</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(row of select) {  %> 
+            <tr>
+                <td>#<%= row['id']  %>  </td>
+                <td><%= row['name'] %>  </td>
+                <td> <%= row['email'] %>  </td>
+                <td> <%= row['phone'] %>   </td>
+                <td> <a href="/viewEmploye?id=<%= row['id'] %>"> <i class="far fa-eye"></i> View</a>    </td>
+                <td> <a href="/updateEmploye?id=<%= row['id'] %> "> <i class="fas fa-pen"></i> Edit</a>    </td>
+                <td> <a href="/api/delete/<%= row['id'] %>"> <i class="fas fa-trash-alt"></i> Delete</a>    </td>
+            </tr>
+            <% } %> 
+        </tbody>
+    </table>
+    
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="/js/DataTables/datatables.css"/>
+    <script type="text/javascript" src="/js/DataTables/datatables.min.js"></script>
+</body>
+</html>
